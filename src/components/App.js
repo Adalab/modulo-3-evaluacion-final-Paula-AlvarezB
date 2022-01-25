@@ -8,6 +8,7 @@ function App() {
   //VARIABLES DE ESTADO
   const [characters, setCharacters] = useState([]);
   const [filterName, setFilterName] = useState("");
+  const [filterHouse, setFilterHouse] = useState("Gryffindor");
 
   //Llamada a la API
   useEffect(() => {
@@ -16,17 +17,35 @@ function App() {
     });
   }, []);
   const handleFilter = (data) => {
-    setFilterName(data);
+    if (data.key === "name") {
+      setFilterName(data.value);
+    } else if (data.key === "house") {
+      setFilterHouse(data.value);
+    }
   };
-  const filteredCharacters = characters.filter((eachCharacter) => {
-    return eachCharacter.name.toLowerCase().includes(filterName.toLowerCase());
-  });
-  console.log(filteredCharacters);
+  const filteredCharacters = characters
+    .filter((eachCharacter) => {
+      return eachCharacter.name
+        .toLowerCase()
+        .includes(filterName.toLowerCase());
+    })
+    .filter((eachCharacter) => {
+      if (filterHouse === "all") {
+        return true;
+      } else {
+        return eachCharacter.house === filterHouse;
+      }
+    });
+
   return (
     <div>
       <h1 className="title--big">Personajes de Harry Potter</h1>
       <main>
-        <Filters handleFilter={handleFilter} />
+        <Filters
+          handleFilter={handleFilter}
+          filterName={filterName}
+          filterHouse={filterHouse}
+        />
         <CharacterList characters={filteredCharacters} />
       </main>
     </div>
