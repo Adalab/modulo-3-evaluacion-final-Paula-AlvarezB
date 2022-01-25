@@ -3,6 +3,8 @@ import getApiData from "../services/api";
 import { useState, useEffect } from "react";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
+import { Route, Switch, useRouteMatch, Link } from "react-router-dom";
+import CharacterDetail from "./CharacterDetail";
 
 function App() {
   //VARIABLES DE ESTADO
@@ -37,18 +39,31 @@ function App() {
       }
     });
 
+  const renderCharacterDetail = (props) => {
+    const routeId = props.match.params.characterId;
+    const foundCharacter = characters.find((user) => characters.id === routeId);
+    return <CharacterDetail character={foundCharacter} />;
+  };
+
   return (
-    <div>
+    <>
       <h1 className="title--big">Personajes de Harry Potter</h1>
-      <main>
-        <Filters
-          handleFilter={handleFilter}
-          filterName={filterName}
-          filterHouse={filterHouse}
-        />
-        <CharacterList characters={filteredCharacters} />
-      </main>
-    </div>
+      <Switch>
+        <Route path="/" exact>
+          <div>
+            <main>
+              <Filters
+                handleFilter={handleFilter}
+                filterName={filterName}
+                filterHouse={filterHouse}
+              />
+              <CharacterList characters={filteredCharacters} />
+            </main>
+          </div>
+        </Route>
+        <Route path="/user/:userId" render={renderCharacterDetail}></Route>
+      </Switch>
+    </>
   );
 }
 
