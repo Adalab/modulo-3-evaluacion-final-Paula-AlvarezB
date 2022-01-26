@@ -9,11 +9,7 @@ const CharacterList = (props) => {
     );
   });
   const determineCharacters = () => {
-    if (characterElements.length === 0) {
-      return <NotFoundPage filterName={props.filterName} />;
-    } else {
-      return <ul className="cards"> {characterElements}</ul>;
-    }
+    return <ul className="cards"> {characterElements}</ul>;
   };
   return <section>{determineCharacters()}</section>;
 };

@@ -8,13 +8,35 @@ const CharacterDetail = (props) => {
       : givenImageUrl;
   };
   const getStatus = () => {
-    return props.character.alive === true
-      ? "el personaje está vivo"
-      : "el personaje está muerto";
+    if (props.character.alive === true) {
+      return (
+        <p>
+          {" "}
+          el personaje está vivo{" "}
+          <i class="fab fa-creative-commons-sampling"></i>{" "}
+        </p>
+      );
+    } else if (props.character.alive === false) {
+      return (
+        <p>
+          {" "}
+          el personaje está muerto <i class="fas fa-skull-crossbones"></i>
+        </p>
+      );
+    }
   };
 
   const getGender = () => {
-    return props.character.gender === "female" ? "Mujer" : "Hombre";
+    return props.character.gender === "female" ? (
+      <span>
+        Mujer <i class="fas fa-user"></i>
+      </span>
+    ) : (
+      <span>
+        {" "}
+        Hombre <i class="fas fa-male"></i>
+      </span>
+    );
   };
 
   const getSpecies = () => {
@@ -44,10 +66,10 @@ const CharacterDetail = (props) => {
         />
         <h4 className="card__title">{props.character.name}</h4>
         <p>Estatus: {getStatus()}</p>
-        <p>
-          Especie: {getSpecies()}
-          <p>Género: {getGender()}</p>Casa: {props.character.house}
-        </p>
+        <p>Especie: {getSpecies()}</p>
+        <p>Género: {getGender()}</p>
+        <p>Casa: {props.character.house}</p>
+        <p>{props.character.id}</p>
       </section>
     </>
   );
