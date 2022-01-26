@@ -1,3 +1,5 @@
+import glasses from "../images/glasses.png";
+
 const FilterHouse = (props) => {
   const handleInputHouse = (ev) => {
     props.handleFilter({
@@ -7,7 +9,7 @@ const FilterHouse = (props) => {
   };
 
   return (
-    <>
+    <div className="formItem">
       <label htmlFor="house">Selecciona la casa:</label>
       <select
         name="house"
@@ -21,7 +23,7 @@ const FilterHouse = (props) => {
         <option value="Hufflepuff">Hufflepuff</option>
         <option value="Ravenclaw">Ravenclaw</option>
       </select>
-    </>
+    </div>
   );
 };
 

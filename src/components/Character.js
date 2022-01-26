@@ -8,8 +8,16 @@ const Character = (props) => {
       : givenImageUrl;
   };
   const getSpecies = () => {
-    if (props.character.species === "human") {
+    if (
+      props.character.species === "human" &&
+      props.character.gender === "male"
+    ) {
       return "humano";
+    } else if (
+      props.character.species === "human" &&
+      props.character.gender === "female"
+    ) {
+      return "humana";
     } else if (props.character.species === "half-giant") {
       return "semigigante";
     } else if (props.character.species === "werewolf") {
@@ -31,8 +39,7 @@ const Character = (props) => {
         title={`Foto de ${props.character.name}`}
       />
       <h4 className="card__title">{props.character.name}</h4>
-      <p className="card__description">{getSpecies()}</p>
-      <p>{props.character.id}</p>
+      <p className="card__description">Especie: {getSpecies()}</p>
     </Link>
   );
 };

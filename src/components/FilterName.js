@@ -1,3 +1,4 @@
+import glasses from "../images/glasses.png";
 const FilterName = (props) => {
   const handleInputName = (ev) => {
     props.handleFilter({
@@ -7,7 +8,7 @@ const FilterName = (props) => {
   };
 
   return (
-    <>
+    <div className="formItem">
       <label htmlFor="name">Busca por personaje:</label>
       <input
         type="text"
@@ -17,7 +18,7 @@ const FilterName = (props) => {
         value={props.filterName}
         onSubmit={(ev) => ev.preventDefault()}
       />
-    </>
+    </div>
   );
 };
 

@@ -30,13 +30,6 @@ function App() {
   const filteredCharacters = characters.filter((eachCharacter) => {
     return eachCharacter.name.toLowerCase().includes(filterName.toLowerCase());
   });
-  // .filter((eachCharacter) => {
-  //   if (filterHouse === "all") {
-  //     return true;
-  //   } else {
-  //     return eachCharacter.house === filterHouse;
-  //   }
-  // });
 
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.userId;
@@ -51,11 +44,13 @@ function App() {
 
   return (
     <>
-      <h1 className="title--big">Personajes de Harry Potter</h1>
+      <header className="header">
+        <h1 className="title--big">Personajes de Harry Potter</h1>
+      </header>
       <Switch>
         <Route path="/" exact>
           <div>
-            <main>
+            <main className="mainContainer">
               <Filters
                 handleFilter={handleFilter}
                 filterName={filterName}
@@ -66,7 +61,6 @@ function App() {
                 <NotFoundPage
                   filterName={filterName}
                   resetFilter={(ev) => {
-                    console.log("holi");
                     ev.preventDefault();
                     setFilterName("");
                   }}

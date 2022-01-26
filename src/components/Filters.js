@@ -4,7 +4,7 @@ import FilterName from "./FilterName";
 const Filters = (props) => {
   return (
     <section>
-      <form>
+      <form className="form">
         <FilterName
           handleFilter={props.handleFilter}
           filterName={props.filterName}
