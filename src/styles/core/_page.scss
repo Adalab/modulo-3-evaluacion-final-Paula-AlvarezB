@@ -63,7 +63,7 @@ body {
   margin: 0px 10px 0px 10px;
   &__img {
     align-content: center;
-    background-color: green;
+
     height: 300px;
     width: 90%;
 
@@ -82,8 +82,21 @@ body {
     background-color: #e7d1ca;
   }
 }
+.characterDetail {
+  &__card {
+    padding: 40px;
+    background-image: url("../../images/Background1.jpeg");
+    display: flex;
+    &--image {
+      width: 20%;
+      height: 40%;
+    }
+    &--info {
+      padding: 15px;
 
-#root {
-  height: 100%;
-  min-height: 100vh;
+      align-items: flex-start;
+      background-color: #562729;
+      color: #d5c895;
+    }
+  }
 }

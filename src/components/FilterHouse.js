@@ -10,7 +10,7 @@ const FilterHouse = (props) => {
 
   return (
     <div className="formItem">
-      <label htmlFor="house">Selecciona la casa:</label>
+      <label htmlFor="house">Busca por casa:</label>
       <select
         name="house"
         id="house"
@@ -18,7 +18,7 @@ const FilterHouse = (props) => {
         value={props.filterHouse}
       >
         <option value="Gryffindor">Gryffindor</option>
-        <option value="all">Todas</option>
+
         <option value="Slytherin">Slytherin</option>
         <option value="Hufflepuff">Hufflepuff</option>
         <option value="Ravenclaw">Ravenclaw</option>

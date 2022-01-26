@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
-
+import Hedwig from "../images/Hedwig.png";
 const CharacterDetail = (props) => {
   const getImageLink = () => {
     const givenImageUrl = props.character.image;
-    return props.character.image === ""
-      ? "https://via.placeholder.com/210x295/ffffff/666666/text=HarryPotter"
-      : givenImageUrl;
+    return props.character.image === "" ? Hedwig : givenImageUrl;
   };
   const getStatus = () => {
     if (props.character.alive === true) {
       return (
-        <p>
+        <span>
           {" "}
           el personaje está vivo{" "}
           <i class="fab fa-creative-commons-sampling"></i>{" "}
-        </p>
+        </span>
       );
     } else if (props.character.alive === false) {
       return (
@@ -40,8 +38,16 @@ const CharacterDetail = (props) => {
   };
 
   const getSpecies = () => {
-    if (props.character.species === "human") {
+    if (
+      props.character.species === "human" &&
+      props.character.gender === "male"
+    ) {
       return "humano";
+    } else if (
+      props.character.species === "human" &&
+      props.character.gender === "female"
+    ) {
+      return "humana";
     } else if (props.character.species === "half-giant") {
       return "semigigante";
     } else if (props.character.species === "werewolf") {
@@ -56,20 +62,27 @@ const CharacterDetail = (props) => {
   };
   return (
     <>
-      <section>
+      <section className="characterDetail">
         <Link to="/">Volver al inicio</Link> <h2>Detalles del personaje</h2>
-        <img
-          className="card__img"
-          src={getImageLink()}
-          alt={`Foto de {props.character.name}`}
-          title={`Foto de {props.character.name}`}
-        />
-        <h4 className="card__title">{props.character.name}</h4>
-        <p>Estatus: {getStatus()}</p>
-        <p>Especie: {getSpecies()}</p>
-        <p>Género: {getGender()}</p>
-        <p>Casa: {props.character.house}</p>
-        <p>{props.character.id}</p>
+        <div className="characterDetail__card">
+          <img
+            className="characterDetail__card--image"
+            src={getImageLink()}
+            alt={`Foto de {props.character.name}`}
+            title={`Foto de {props.character.name}`}
+          />
+          <div className="characterDetail__card--info">
+            <h4 className="characterDetail__card--title">
+              {props.character.name}
+            </h4>
+
+            <p>Estatus: {getStatus()}</p>
+            <p>Especie: {getSpecies()}</p>
+            <p>Género: {getGender()}</p>
+            <p>Casa: {props.character.house}</p>
+            <p>{props.character.id}</p>
+          </div>
+        </div>
       </section>
     </>
   );

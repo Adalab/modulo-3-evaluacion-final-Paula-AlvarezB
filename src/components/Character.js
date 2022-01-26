@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
+import Hedwig from "../images/Hedwig.png";
 
 const Character = (props) => {
   const getImageLink = () => {
     const givenImageUrl = props.character.image;
-    return props.character.image === ""
-      ? "https://via.placeholder.com/210x295/ffffff/666666/text=HarryPotter"
-      : givenImageUrl;
+    return props.character.image === "" ? Hedwig : givenImageUrl;
   };
   const getSpecies = () => {
     if (
