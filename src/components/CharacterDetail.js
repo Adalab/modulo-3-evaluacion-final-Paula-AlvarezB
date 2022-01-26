@@ -7,7 +7,31 @@ const CharacterDetail = (props) => {
       ? "https://via.placeholder.com/210x295/ffffff/666666/text=HarryPotter"
       : givenImageUrl;
   };
+  const getStatus = () => {
+    return props.character.alive === true
+      ? "el personaje está vivo"
+      : "el personaje está muerto";
+  };
 
+  const getGender = () => {
+    return props.character.gender === "female" ? "Mujer" : "Hombre";
+  };
+
+  const getSpecies = () => {
+    if (props.character.species === "human") {
+      return "humano";
+    } else if (props.character.species === "half-giant") {
+      return "semigigante";
+    } else if (props.character.species === "werewolf") {
+      return "hombre-lobo";
+    } else if (props.character.species === "cat") {
+      return "gato";
+    } else if (props.character.species === "ghost") {
+      return "fantasma";
+    } else {
+      return props.character.species;
+    }
+  };
   return (
     <>
       <section>
@@ -19,10 +43,10 @@ const CharacterDetail = (props) => {
           title={`Foto de {props.character.name}`}
         />
         <h4 className="card__title">{props.character.name}</h4>
-        <p>Estatus: {props.character.alive}</p>
+        <p>Estatus: {getStatus()}</p>
         <p>
-          Especie: {props.character.species}
-          <p>Género: {props.character.gender}</p>Casa: {props.character.house}
+          Especie: {getSpecies()}
+          <p>Género: {getGender()}</p>Casa: {props.character.house}
         </p>
       </section>
     </>

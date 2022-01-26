@@ -12,7 +12,7 @@ const getApiData = () => {
           house: character.house,
           alive: character.alive,
           gender: character.gender,
-          id: `${character.dateOfBirth}${character.wand.length}`,
+          id: `${character.name}${character.actor}`,
         };
       });
       return cleanData;

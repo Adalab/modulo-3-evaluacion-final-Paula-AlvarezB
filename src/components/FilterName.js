@@ -15,6 +15,7 @@ const FilterName = (props) => {
         id="name"
         onChange={handleInputName}
         value={props.filterName}
+        onSubmit={(ev) => ev.preventDefault()}
       />
     </>
   );

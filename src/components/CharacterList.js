@@ -1,4 +1,5 @@
 import Character from "./Character";
+import NotFoundPage from "./NotFoundPage";
 const CharacterList = (props) => {
   const characterElements = props.characters.map((character, index) => {
     return (
@@ -7,11 +8,14 @@ const CharacterList = (props) => {
       </li>
     );
   });
-  return (
-    <section>
-      <ul className="cards"> {characterElements}</ul>
-    </section>
-  );
+  const determineCharacters = () => {
+    if (characterElements.length === 0) {
+      return <NotFoundPage filterName={props.filterName} />;
+    } else {
+      return <ul className="cards"> {characterElements}</ul>;
+    }
+  };
+  return <section>{determineCharacters()}</section>;
 };
 
 export default CharacterList;

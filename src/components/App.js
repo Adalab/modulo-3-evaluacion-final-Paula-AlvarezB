@@ -5,6 +5,7 @@ import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import { Route, Switch, useRouteMatch, Link } from "react-router-dom";
 import CharacterDetail from "./CharacterDetail";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
   //VARIABLES DE ESTADO
@@ -40,8 +41,11 @@ function App() {
     });
 
   const renderCharacterDetail = (props) => {
-    const routeId = props.match.params.characterId;
-    const foundCharacter = characters.find((user) => characters.id === routeId);
+    const routeId = props.match.params.userId;
+    console.log(routeId);
+    const foundCharacter = characters.find(
+      (character) => character.id === routeId
+    );
     return <CharacterDetail character={foundCharacter} />;
   };
 
@@ -57,11 +61,17 @@ function App() {
                 filterName={filterName}
                 filterHouse={filterHouse}
               />
-              <CharacterList characters={filteredCharacters} />
+              <CharacterList
+                filterName={filterName}
+                characters={filteredCharacters}
+              />
             </main>
           </div>
         </Route>
         <Route path="/user/:userId" render={renderCharacterDetail}></Route>
+        {/* <Route>
+          <NotFoundPage />
+        </Route> */}
       </Switch>
     </>
   );
