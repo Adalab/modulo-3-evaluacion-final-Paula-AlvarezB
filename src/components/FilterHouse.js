@@ -1,5 +1,3 @@
-import glasses from "../images/glasses.png";
-
 const FilterHouse = (props) => {
   const handleInputHouse = (ev) => {
     props.handleFilter({

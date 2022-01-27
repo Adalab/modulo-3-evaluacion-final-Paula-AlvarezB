@@ -13,6 +13,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
+  const [filterGender, setFilterGender] = useState("all");
 
   //Llamada a la API
   useEffect(() => {
@@ -25,21 +26,33 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "gender") {
+      setFilterGender(data.value);
     }
   };
 
   const resetFilter = () => {
     setFilterName("");
     setFilterHouse("Gryffindor");
+    setFilterGender("all");
   };
-  const filteredCharacters = characters.filter((eachCharacter) => {
-    return eachCharacter.name.toLowerCase().includes(filterName.toLowerCase());
-  });
+  const filteredCharacters = characters
+    .filter((eachCharacter) => {
+      return eachCharacter.name
+        .toLowerCase()
+        .includes(filterName.toLowerCase());
+    })
+    .filter((eachCharacter) => {
+      if (filterGender === "all") {
+        return true;
+      } else {
+        return eachCharacter.gender === filterGender;
+      }
+    });
 
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.userId;
 
-    // console.log(routeId.replaceAll("e", "i"));
     const foundCharacter = characters.find(
       (character) => character.id === routeId
     );
@@ -61,6 +74,7 @@ function App() {
                 filterName={filterName}
                 filterHouse={filterHouse}
                 resetFilter={resetFilter}
+                filterGender={filterGender}
               />
 
               {filteredCharacters.length === 0 ? (
@@ -82,9 +96,9 @@ function App() {
           </div>
         </Route>
         <Route path="/user/:userId" render={renderCharacterDetail}></Route>
-        <Route>
+        {/* <Route>
           <NotFoundPage2 />
-        </Route>
+        </Route> */}
       </Switch>
     </>
   );
