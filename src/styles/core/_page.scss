@@ -4,7 +4,6 @@
 }
 
 * {
-  box-sizing: border-box;
   list-style: none;
   text-decoration: none;
 }
@@ -25,7 +24,6 @@ body {
   border-radius: 10px;
 }
 .header {
-  position: relative;
   height: 180px;
   background-image: url("../../images/characters1.png");
   background-size: 1000px;
@@ -44,13 +42,27 @@ body {
 .mainContainer {
   background-image: url("../../images/Background4.jpeg");
 }
+input {
+  border-radius: 20px;
+  border: solid 1px;
+  margin-left: 10px;
+}
 
+select {
+  border-radius: 20px;
+  border: solid 1px;
+  margin-left: 10px;
+}
 .form {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
   font-size: 10px;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background-color: #e7d1ca;
   @media all and (min-width: 768px) {
     font-size: 15px;
     display: flex;
@@ -61,8 +73,9 @@ body {
 }
 .formItem {
   background-color: white;
-  width: 40%;
+  width: 10%;
   border-radius: 50px;
+  margin: 0px 20px 0px 20px;
   padding: 5px 10px 5px 10px;
 
   @media all and (min-width: 768px) {
@@ -71,6 +84,7 @@ body {
 }
 .cards {
   margin-top: 50px;
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

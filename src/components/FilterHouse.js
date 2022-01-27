@@ -8,7 +8,7 @@ const FilterHouse = (props) => {
 
   return (
     <div className="formItem">
-      <label htmlFor="house">Busca por casa:</label>
+      <label htmlFor="house">Busca por casa</label>
       <select
         name="house"
         id="house"
