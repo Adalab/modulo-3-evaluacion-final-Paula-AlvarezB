@@ -16,10 +16,10 @@ const CharacterDetail = (props) => {
       );
     } else if (props.character.alive === false) {
       return (
-        <p>
+        <span>
           {" "}
           el personaje está muerto <i class="fas fa-skull-crossbones"></i>
-        </p>
+        </span>
       );
     }
   };
@@ -64,25 +64,29 @@ const CharacterDetail = (props) => {
     <>
       <section className="characterDetail">
         <Link to="/">Volver al inicio</Link> <h2>Detalles del personaje</h2>
-        <div className="characterDetail__card">
-          <img
-            className="characterDetail__card--image"
-            src={getImageLink()}
-            alt={`Foto de {props.character.name}`}
-            title={`Foto de {props.character.name}`}
-          />
-          <div className="characterDetail__card--info">
-            <h4 className="characterDetail__card--title">
-              {props.character.name}
-            </h4>
+        {props.character === undefined ? (
+          "personaje no encontrado"
+        ) : (
+          <div className="characterDetail__card">
+            <img
+              className="characterDetail__card--image"
+              src={getImageLink()}
+              alt={`Foto de {props.character.name}`}
+              title={`Foto de {props.character.name}`}
+            />
+            <div className="characterDetail__card--info">
+              <h4 className="characterDetail__card--title">
+                {props.character.name}
+              </h4>
 
-            <p>Estatus: {getStatus()}</p>
-            <p>Especie: {getSpecies()}</p>
-            <p>Género: {getGender()}</p>
-            <p>Casa: {props.character.house}</p>
-            <p>{props.character.id}</p>
+              <p>Estatus: {getStatus()}</p>
+              <p>Especie: {getSpecies()}</p>
+              <p>Género: {getGender()}</p>
+              <p>Casa: {props.character.house}</p>
+              <p>{props.character.id}</p>
+            </div>
           </div>
-        </div>
+        )}
       </section>
     </>
   );

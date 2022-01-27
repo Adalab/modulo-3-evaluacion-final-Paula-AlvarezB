@@ -1,4 +1,3 @@
-import glasses from "../images/glasses.png";
 const FilterName = (props) => {
   const handleInputName = (ev) => {
     props.handleFilter({
@@ -15,6 +14,7 @@ const FilterName = (props) => {
         name="name"
         id="name"
         onChange={handleInputName}
+        placeholder="Ej.Hermione"
         value={props.filterName}
         onSubmit={(ev) => ev.preventDefault()}
       />

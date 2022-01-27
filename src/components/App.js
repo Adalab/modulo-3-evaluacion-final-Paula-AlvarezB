@@ -27,6 +27,11 @@ function App() {
       setFilterHouse(data.value);
     }
   };
+
+  const resetFilter = () => {
+    setFilterName("");
+    setFilterHouse("Gryffindor");
+  };
   const filteredCharacters = characters.filter((eachCharacter) => {
     return eachCharacter.name.toLowerCase().includes(filterName.toLowerCase());
   });
@@ -55,6 +60,7 @@ function App() {
                 handleFilter={handleFilter}
                 filterName={filterName}
                 filterHouse={filterHouse}
+                resetFilter={resetFilter}
               />
 
               {filteredCharacters.length === 0 ? (

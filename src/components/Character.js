@@ -30,15 +30,17 @@ const Character = (props) => {
     }
   };
   return (
-    <Link to={`/user/${props.character.id}`}>
+    <Link class="card__link" to={`/user/${props.character.id}`}>
       <img
         className="card__img"
         src={getImageLink()}
         alt={`Foto de ${props.character.name}`}
         title={`Foto de ${props.character.name}`}
       />
-      <h4 className="card__title">{props.character.name}</h4>
-      <p className="card__description">Especie: {getSpecies()}</p>
+      <div class="card__info">
+        <h4 className="card__title">{props.character.name}</h4>
+        <p className="card__description">Especie: {getSpecies()}</p>
+      </div>
     </Link>
   );
 };
