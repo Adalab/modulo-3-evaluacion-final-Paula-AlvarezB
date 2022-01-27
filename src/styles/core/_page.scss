@@ -16,6 +16,14 @@ body {
     sans-serif;
   background-color: #e7d1ca;
 }
+.button {
+  background-color: #592b19;
+  color: #e7d1ca;
+  border-style: none;
+  width: auto;
+  padding: 5px 20px 5px 20px;
+  border-radius: 10px;
+}
 .header {
   position: relative;
   height: 180px;
@@ -132,5 +140,13 @@ body {
       background-color: #562729;
       color: #d5c895;
     }
+  }
+}
+.notFoundPage {
+  background-color: #e7d1ca;
+  padding: 20px 0px 10px 20px;
+
+  &__snap {
+    text-align: center;
   }
 }
