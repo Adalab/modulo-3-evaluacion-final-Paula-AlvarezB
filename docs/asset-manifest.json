@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "./static/css/main.e1e23083.css",
-    "main.js": "./static/js/main.92c7baca.js",
+    "main.css": "./static/css/main.2257472d.css",
+    "main.js": "./static/js/main.0ef2f526.js",
     "static/media/Hedwig.png": "./static/media/Hedwig.822b04aba5ee8502ba64.png",
     "static/media/characters1.png": "./static/media/characters1.081469f31b98beb30570.png",
     "static/media/Background1.jpeg": "./static/media/Background1.0a0655239fdff4cc32d0.jpeg",
     "static/media/Background4.jpeg": "./static/media/Background4.dc3e4404790ff9d36cfc.jpeg",
     "static/media/HARRYP__.TTF": "./static/media/HARRYP__.a65869c0c1a4b3d4fcfc.TTF",
     "index.html": "./index.html",
-    "main.e1e23083.css.map": "./static/css/main.e1e23083.css.map",
-    "main.92c7baca.js.map": "./static/js/main.92c7baca.js.map"
+    "main.2257472d.css.map": "./static/css/main.2257472d.css.map",
+    "main.0ef2f526.js.map": "./static/js/main.0ef2f526.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1e23083.css",
-    "static/js/main.92c7baca.js"
+    "static/css/main.2257472d.css",
+    "static/js/main.0ef2f526.js"
   ]
 }
