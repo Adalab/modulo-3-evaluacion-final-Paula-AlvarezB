@@ -2,6 +2,7 @@ import FilterHouse from "./FilterHouse";
 import FilterName from "./FilterName";
 import ResetButton from "./ResetButton";
 import FilterGender from "./FilterGender";
+import FilterAlive from "./FilterAlive";
 
 const Filters = (props) => {
   return (
@@ -19,6 +20,11 @@ const Filters = (props) => {
           handleFilter={props.handleFilter}
           filterGender={props.filterGender}
         />
+        <FilterAlive
+          filterAlive={props.FilterAlive}
+          handleFilter={props.handleFilter}
+        />
+
         <ResetButton resetFilter={props.resetFilter} />
       </form>
     </section>

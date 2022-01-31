@@ -14,6 +14,7 @@ function App() {
   const [filterName, setFilterName] = useState("");
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
   const [filterGender, setFilterGender] = useState("all");
+  const [filterAlive, setFilterAlive] = useState("");
 
   //Llamada a la API
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
       setCharacters(charactersData);
     });
   }, [filterHouse]);
+
   const handleFilter = (data) => {
     if (data.key === "name") {
       setFilterName(data.value);
@@ -28,6 +30,8 @@ function App() {
       setFilterHouse(data.value);
     } else if (data.key === "gender") {
       setFilterGender(data.value);
+    } else if (data.key === "alive") {
+      setFilterAlive(data.value);
     }
   };
 
@@ -47,6 +51,15 @@ function App() {
         return true;
       } else {
         return eachCharacter.gender === filterGender;
+      }
+    })
+    .filter((eachCharacter) => {
+      if (filterAlive === "alive") {
+        return eachCharacter.alive === true;
+      } else if (filterAlive === "dead") {
+        return eachCharacter.alive === false;
+      } else {
+        return eachCharacter;
       }
     });
 
@@ -75,6 +88,7 @@ function App() {
                 filterHouse={filterHouse}
                 resetFilter={resetFilter}
                 filterGender={filterGender}
+                filterAlive={filterAlive}
               />
 
               {filteredCharacters.length === 0 ? (
